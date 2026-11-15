@@ -11,7 +11,7 @@ Em desenvolvimento. Hoje os links ficam guardados em memória, então são perdi
 - [x] Encurtar uma URL (`POST /shorten`)
 - [x] Redirecionar pelo código curto (`GET /{codigo}`)
 - [x] Validação da URL recebida
-- [ ] Persistência em banco de dados (SQLite)
+- [x] Persistência em banco de dados (SQLite)
 - [ ] Contador de cliques
 - [ ] Expiração de links
 - [ ] Alias personalizado
