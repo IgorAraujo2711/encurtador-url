@@ -44,9 +44,18 @@ def encurtar(entrada: UrlEntrada):
     }
 
 
+@app.get("/stats/{codigo}")
+def estatisticas(codigo: str):
+    dados = database.buscar_estatisticas(codigo)
+    if dados is None:
+        raise HTTPException(status_code=404, detail="Código não encontrado")
+    return dados
+
+
 @app.get("/{codigo}")
 def redirecionar(codigo: str):
     url = database.buscar_link(codigo)
     if url is None:
         raise HTTPException(status_code=404, detail="Código não encontrado")
+    database.registrar_clique(codigo)
     return RedirectResponse(url=url, status_code=302)

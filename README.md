@@ -12,7 +12,7 @@ Em desenvolvimento. Hoje os links ficam guardados em memória, então são perdi
 - [x] Redirecionar pelo código curto (`GET /{codigo}`)
 - [x] Validação da URL recebida
 - [x] Persistência em banco de dados (SQLite)
-- [ ] Contador de cliques
+- [x] Contador de cliques
 - [ ] Expiração de links
 - [ ] Alias personalizado
 - [ ] Testes automatizados

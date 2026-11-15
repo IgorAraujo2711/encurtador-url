@@ -16,10 +16,12 @@ def criar_tabelas() -> None:
             CREATE TABLE IF NOT EXISTS links (
                 codigo TEXT PRIMARY KEY,
                 url_original TEXT NOT NULL,
-                criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+                criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                cliques INTEGER NOT NULL DEFAULT 0
             )
             """
         )
+
 
 def salvar_link(codigo: str, url_original: str) -> None:
     with conectar() as conexao:
@@ -36,3 +38,20 @@ def buscar_link(codigo: str) -> str | None:
             (codigo,),
         ).fetchone()
     return linha["url_original"] if linha else None
+
+
+def registrar_clique(codigo: str) -> None:
+    with conectar() as conexao:
+        conexao.execute(
+            "UPDATE links SET cliques = cliques + 1 WHERE codigo = ?",
+            (codigo,),
+        )
+
+
+def buscar_estatisticas(codigo: str) -> dict | None:
+    with conectar() as conexao:
+        linha = conexao.execute(
+            "SELECT codigo, url_original, criado_em, cliques FROM links WHERE codigo = ?",
+            (codigo,),
+        ).fetchone()
+    return dict(linha) if linha else None
