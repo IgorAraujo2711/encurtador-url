@@ -20,3 +20,19 @@ def criar_tabelas() -> None:
             )
             """
         )
+
+def salvar_link(codigo: str, url_original: str) -> None:
+    with conectar() as conexao:
+        conexao.execute(
+            "INSERT INTO links (codigo, url_original) VALUES (?, ?)",
+            (codigo, url_original),
+        )
+
+
+def buscar_link(codigo: str) -> str | None:
+    with conectar() as conexao:
+        linha = conexao.execute(
+            "SELECT url_original FROM links WHERE codigo = ?",
+            (codigo,),
+        ).fetchone()
+    return linha["url_original"] if linha else None
