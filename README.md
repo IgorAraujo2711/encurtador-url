@@ -15,7 +15,7 @@ Em desenvolvimento. Hoje os links ficam guardados em memória, então são perdi
 - [x] Contador de cliques
 - [ ] Expiração de links
 - [ ] Alias personalizado
-- [ ] Testes automatizados
+- [x] Testes automatizados
 - [ ] Docker
 - [ ] Deploy
 
@@ -61,6 +61,12 @@ Resposta:
 ```
 
 Abrir `http://127.0.0.1:8000/aB3xK9` redireciona para a URL original.
+
+## Testes
+
+```bash
+python -m pytest
+```
 
 ## Decisões técnicas
 
