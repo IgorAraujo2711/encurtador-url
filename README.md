@@ -1,5 +1,7 @@
 # Encurtador de URL
 
+![Testes](https://github.com/IgorAraujo2711/encurtador-url/actions/workflows/tests.yml/badge.svg)
+
 Projeto acadêmico de um encurtador de URLs feito com Python e FastAPI, criado para estudar desenvolvimento de APIs, banco de dados e boas práticas de engenharia de software.
 
 ## Status
@@ -18,6 +20,7 @@ Em desenvolvimento. Hoje os links ficam guardados em memória, então são perdi
 - [x] Testes automatizados
 - [ ] Docker
 - [ ] Deploy
+- [x] CI com GitHub Actions
 
 ## Tecnologias
 
